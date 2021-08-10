@@ -1,0 +1,13 @@
+class Main {
+  public static void main(String[] args) {
+    int v[] = new int[15];
+    int i;
+    int soma;
+
+    for (i=0; i<15; i++) {
+        if(v[]%2 == 0) {
+          soma *= v[i];
+        }
+
+    }
+}
