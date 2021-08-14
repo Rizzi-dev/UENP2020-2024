@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+class Automato {
+  int cont;
+  char entrada[];
+
+  public void Iniciar() {
+    cont = 0;
+    q0();
+
+  }
+
+  public void q0() {
+      if (cont < entrada.length){
+        if (entrada[cont] == 'a') {
+          cont++;
+          q1();
+        }
+        else if (entrada[cont] == 'c') {
+          q3();
+        }
+        else {
+          qerror();
+        }
+      }
+  }
+  public void q1() {
+    if (cont < entrada.length){
+        if (entrada[cont] == 'b') {
+          cont++;
+          q2();
+        }
+        else {
+          qerror();
+        }
+      }
+  }
+  public void q2() {
+    if (cont < entrada.length){
+        if (entrada[cont] == 'b') {
+          cont++;
+          q0();
+        }
+        else {
+          qerror();
+        }
+      }
+  }
+
+  public void q3() {
+    System.err.println("Palavra aceita pelo automato!");
+  }
+  public void qerror() {
+    System.err.println("Palavra não aceita pelo automato!");
+  }
+
+
+}
+
+class Main {
+  public static void main(String[] args) {
+    Automato aut = new Automato();
+    String sentenca;
+    Scanner read = new Scanner(System.in);
+    System.out.println("Entre com a sentença: ");
+    sentenca = read.nextLine();
+    aut.entrada = sentenca.toCharArray();
+    aut.Iniciar();
+  }
+}
