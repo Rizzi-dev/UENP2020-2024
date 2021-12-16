@@ -1,0 +1,16 @@
+class Main {
+
+  static int funcaoRecur(int x){
+    if(x <=2 || x == 0){
+      return 1;
+    }else{
+      return x * x + funcaoRecur(x-1) + funcaoRecur(x-2);
+    }
+  }
+
+  public static void main(String[] args) {
+    int x = 3;
+
+    System.out.printf("%d\n", funcaoRecur(x));
+  }
+}
